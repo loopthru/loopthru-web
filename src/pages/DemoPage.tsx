@@ -238,6 +238,9 @@ export default function DemoPage() {
                 )}
                 Review Infrastructure Change
               </button>
+              <p className="text-sm leading-6 text-[#617066]">
+                First-time initialization may take a few moments while review services start.
+              </p>
 
               {createRequest.error ? (
                 <p className="text-sm font-medium text-[#a23b2a]">
