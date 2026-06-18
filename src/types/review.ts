@@ -8,8 +8,9 @@ export type ReviewRequestStatus =
 export type ReviewRequestInput = {
   name: string;
   email: string;
-  url: string;
-  notes: string;
+  iacTool: 'terraform';
+  cloudProvider: 'aws';
+  code: string;
 };
 
 export type ReviewRequest = ReviewRequestInput & {
