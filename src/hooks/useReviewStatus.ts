@@ -9,7 +9,7 @@ export function useReviewStatus(requestId?: string) {
     enabled: Boolean(requestId),
     refetchInterval: (query) => {
       const status = query.state.data?.status;
-      return status && isTerminalStatus(status) ? false : 3_000;
+      return status && isTerminalStatus(status) ? false : 5_000;
     },
   });
 }
