@@ -13,13 +13,17 @@ describe('reviewApi', () => {
     const request = await createReviewRequest({
       name: 'Rina',
       email: 'rina@example.com',
-      url: 'https://example.com',
-      notes: 'Review our onboarding flow.',
+      iacTool: 'terraform',
+      cloudProvider: 'aws',
+      code: 'resource "aws_s3_bucket" "app" {}',
     });
 
     expect(request.id).toMatch(/^rev_/);
     expect(request.status).toBe('queued');
     expect(request.email).toBe('rina@example.com');
+    expect(request.iacTool).toBe('terraform');
+    expect(request.cloudProvider).toBe('aws');
+    expect(request.code).toContain('aws_s3_bucket');
   });
 
   it('advances status as polling continues', async () => {
@@ -29,8 +33,9 @@ describe('reviewApi', () => {
     const requestPromise = createReviewRequest({
       name: 'Rina',
       email: 'rina@example.com',
-      url: 'https://example.com',
-      notes: 'Review our onboarding flow.',
+      iacTool: 'terraform',
+      cloudProvider: 'aws',
+      code: 'resource "aws_s3_bucket" "app" {}',
     });
     await vi.advanceTimersByTimeAsync(300);
     const request = await requestPromise;

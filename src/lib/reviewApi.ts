@@ -14,22 +14,22 @@ const requests = new Map<string, StoredReviewRequest>();
 const statusTimeline: Array<Pick<ReviewStatus, 'status' | 'message' | 'progress'>> = [
   {
     status: 'queued',
-    message: 'Your request is queued and ready for intake.',
+    message: 'Your Terraform review request is queued for intake.',
     progress: 12,
   },
   {
     status: 'in_review',
-    message: 'A reviewer is analyzing the submission details.',
+    message: 'LoopThru is checking the AWS configuration for risk signals.',
     progress: 48,
   },
   {
     status: 'in_review',
-    message: 'Findings are being organized into a review packet.',
+    message: 'Findings are being organized into an IaC review packet.',
     progress: 76,
   },
   {
     status: 'complete',
-    message: 'The review packet is ready to share.',
+    message: 'The IaC review packet is ready to share.',
     progress: 100,
   },
 ];
