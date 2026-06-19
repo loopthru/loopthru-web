@@ -153,11 +153,11 @@ export default function DemoPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#f8faf7] text-[#172019]">
+    <main className="min-h-screen bg-[#f8fafc] text-[#0f172a]">
       <div className="mx-auto max-w-6xl px-5 py-8">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#2c6559] hover:text-[#173f35]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#4f46e5] hover:text-[#3730a3]"
         >
           <ArrowLeft size={16} aria-hidden="true" />
           Back to landing
@@ -165,26 +165,26 @@ export default function DemoPage() {
 
         <section className="mt-8">
           <div className="w-full">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#42776c]">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#4f46e5]">
               LoopThru Demo
             </p>
             <div className="max-w-4xl">
               <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
                 Know Before You Deploy
               </h1>
-              <p className="mt-4 text-base leading-7 text-[#5b6d62]">
+              <p className="mt-4 text-base leading-7 text-[#475569]">
                 Submit a Terraform plan and receive an AI-powered governance review with security, compliance, reliability, and cost insights.
               </p>
             </div>
-            <p className="mt-5 w-full rounded-md border border-[#cbdad2] bg-[#eef7f3] px-5 py-4 text-sm leading-6 text-[#3f5549] shadow-sm">
-              <span className="font-semibold text-[#173f35]">Hackathon scope:</span> LoopThru focuses on Terraform-based AWS S3 changes to demonstrate an end-to-end governance workflow powered by Band.
+            <p className="mt-5 w-full rounded-md border border-[#c7d2fe] bg-[#eef2ff] px-5 py-4 text-sm leading-6 text-[#475569] shadow-sm">
+              <span className="font-semibold text-[#4f46e5]">Hackathon scope:</span> LoopThru focuses on Terraform-based AWS S3 changes to demonstrate an end-to-end governance workflow powered by Band.
             </p>
           </div>
         </section>
 
-        <form className="mt-8 rounded-md border border-[#dbe3d7] bg-white shadow-sm" onSubmit={handleSubmit}>
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e6ece4] p-5">
-            <h2 className="text-lg font-semibold text-[#172019]">Review Infrastructure Change</h2>
+        <form className="mt-8 rounded-md border border-[#e2e8f0] bg-white shadow-sm" onSubmit={handleSubmit}>
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] p-5">
+            <h2 className="text-lg font-semibold text-[#0f172a]">Review Infrastructure Change</h2>
             {isReviewActive ? <ProgressPill label={progressSummary.label} progress={progressSummary.progress} /> : null}
           </div>
 
@@ -194,7 +194,7 @@ export default function DemoPage() {
                 <div className="relative">
                   <Layers3
                     size={17}
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#617066]"
+                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#64748b]"
                     aria-hidden="true"
                   />
                   <select
@@ -212,7 +212,7 @@ export default function DemoPage() {
                 <div className="relative">
                   <Cloud
                     size={17}
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#617066]"
+                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#64748b]"
                     aria-hidden="true"
                   />
                   <select
@@ -229,7 +229,7 @@ export default function DemoPage() {
               <button
                 type="submit"
                 disabled={isReviewActive}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#173f35] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2d27] disabled:cursor-not-allowed disabled:bg-[#8fa39a]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:from-[#94a3b8] disabled:to-[#94a3b8]"
               >
                 {isReviewActive ? (
                   <Loader2 size={17} className="animate-spin" aria-hidden="true" />
@@ -238,12 +238,12 @@ export default function DemoPage() {
                 )}
                 Review Infrastructure Change
               </button>
-              <p className="text-sm leading-6 text-[#617066]">
+              <p className="text-sm leading-6 text-[#64748b]">
                 First-time initialization may take a few moments while review services start.
               </p>
 
               {createRequest.error ? (
-                <p className="text-sm font-medium text-[#a23b2a]">
+                <p className="text-sm font-medium text-[#dc2626]">
                   {createRequest.error.message}
                 </p>
               ) : null}
@@ -256,7 +256,7 @@ export default function DemoPage() {
                 rows={18}
                 value={form.code}
                 onChange={(event) => updateField('code', event.target.value)}
-                className="input min-h-[360px] resize-y bg-[#101815] font-mono text-sm leading-6 text-[#e7efe9] placeholder:text-[#7f9188]"
+                className="input min-h-[360px] resize-y bg-[#0f172a] font-mono text-sm leading-6 text-[#f8fafc] placeholder:text-[#94a3b8]"
                 spellCheck={false}
               />
             </Field>
@@ -282,7 +282,7 @@ function Field({
 }) {
   return (
     <label className="block" htmlFor={htmlFor}>
-      <span className="mb-2 block text-sm font-semibold text-[#24352c]">{label}</span>
+      <span className="mb-2 block text-sm font-semibold text-[#1e293b]">{label}</span>
       {children}
     </label>
   );
@@ -313,7 +313,7 @@ function getProgressSummary({
 
 function ProgressPill({ label, progress }: { label: string; progress: number }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-[#dceee8] px-3 py-1.5 text-xs font-semibold capitalize text-[#173f35]">
+    <span className="inline-flex items-center rounded-full bg-[#eef2ff] px-3 py-1.5 text-xs font-semibold capitalize text-[#4f46e5]">
       {label} {progress}%
     </span>
   );
@@ -322,13 +322,13 @@ function ProgressPill({ label, progress }: { label: string; progress: number }) 
 function SummaryPanel({ summary }: { summary?: ReviewSummary }) {
   if (!summary) {
     return (
-      <div className="grid min-h-[250px] place-items-center rounded-md border border-dashed border-[#b8c7be] bg-white p-8 text-center">
+      <div className="grid min-h-[250px] place-items-center rounded-md border border-dashed border-[#cbd5e1] bg-white p-8 text-center">
         <div>
-          <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#dceee8] text-[#173f35]">
+          <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#eef2ff] text-[#4f46e5]">
             <CheckCircle2 size={20} aria-hidden="true" />
           </span>
-          <h2 className="mt-3 text-xl font-semibold text-[#172019]">Summary will appear here</h2>
-          <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-[#617066]">
+          <h2 className="mt-3 text-xl font-semibold text-[#0f172a]">Summary will appear here</h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-[#64748b]">
             Once the review finishes, this section will show the decision, risk score, findings,
             compliance violations, reporting agents, and approval conditions.
           </p>
@@ -346,18 +346,18 @@ function SummaryPanel({ summary }: { summary?: ReviewSummary }) {
   );
 
   return (
-    <section className="overflow-hidden rounded-md border border-[#dbe3d7] bg-white shadow-sm">
-      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#e6ece4] p-5">
+    <section className="overflow-hidden rounded-md border border-[#e2e8f0] bg-white shadow-sm">
+      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#e2e8f0] p-5">
         <div>
-          <h2 className="text-lg font-semibold text-[#172019]">Review summary</h2>
-          <p className="mt-1 text-sm leading-6 text-[#617066]">
+          <h2 className="text-lg font-semibold text-[#0f172a]">Review summary</h2>
+          <p className="mt-1 text-sm leading-6 text-[#64748b]">
             Summary is preserved after the active session resets, so a new request can start.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <DecisionBadge decision={summary.decision} />
           {typeof summary.risk_score === 'number' ? (
-            <span className="rounded-full bg-[#fff3c4] px-3 py-1 text-xs font-semibold text-[#6c4a00]">
+            <span className="rounded-full bg-[#fffbeb] px-3 py-1 text-xs font-semibold text-[#92400e]">
               Risk {summary.risk_score}
             </span>
           ) : null}
@@ -365,35 +365,35 @@ function SummaryPanel({ summary }: { summary?: ReviewSummary }) {
       </div>
 
       <div className="space-y-5 p-5">
-        <div className="rounded-md border-l-4 border-[#a23b2a] bg-[#fff7f4] px-4 py-3 text-sm leading-6 text-[#3e2b24]">
+        <div className="rounded-md border-l-4 border-[#dc2626] bg-[#fee2e2] px-4 py-3 text-sm leading-6 text-[#7f1d1d]">
           {summary.summary}
         </div>
 
         {summary.top_risks?.length ? (
           <div className="grid gap-3 sm:grid-cols-3">
             {summary.top_risks.map((risk) => (
-              <div key={risk} className="rounded-md border border-[#e1d6c1] bg-[#fffdf8] p-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#705f3d]">
+              <div key={risk} className="rounded-md border border-[#fde68a] bg-[#fffbeb] p-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#92400e]">
                   Top risk
                 </p>
-                <p className="mt-2 text-sm leading-5 text-[#24352c]">{risk}</p>
+                <p className="mt-2 text-sm leading-5 text-[#1e293b]">{risk}</p>
               </div>
             ))}
           </div>
         ) : null}
 
-        <div className="divide-y divide-[#e6ece4]">
+        <div className="divide-y divide-[#e2e8f0]">
           {findings.map((finding) => (
             <article key={`${finding.resourceName}-${finding.title}`} className="grid gap-3 py-4 sm:grid-cols-[84px_1fr]">
               <span className={severityClassName(finding.severity)}>{finding.severity}</span>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#617066]">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#64748b]">
                   {finding.resourceAddress ?? finding.resourceName}
                 </p>
-                <h3 className="mt-1 text-base font-semibold text-[#172019]">{finding.title}</h3>
-                <p className="mt-1 text-sm leading-6 text-[#617066]">{finding.summary}</p>
+                <h3 className="mt-1 text-base font-semibold text-[#0f172a]">{finding.title}</h3>
+                <p className="mt-1 text-sm leading-6 text-[#64748b]">{finding.summary}</p>
                 {finding.required_fix ? (
-                  <p className="mt-2 text-sm font-semibold leading-6 text-[#24352c]">
+                  <p className="mt-2 text-sm font-semibold leading-6 text-[#1e293b]">
                     Fix: {finding.required_fix}
                   </p>
                 ) : null}
@@ -406,9 +406,9 @@ function SummaryPanel({ summary }: { summary?: ReviewSummary }) {
         </div>
 
         {summary.approval_conditions?.length ? (
-          <div className="border-t border-[#e6ece4] pt-4">
-            <h3 className="text-base font-semibold text-[#172019]">Approval conditions</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[#4f5f55]">
+          <div className="border-t border-[#e2e8f0] pt-4">
+            <h3 className="text-base font-semibold text-[#0f172a]">Approval conditions</h3>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[#475569]">
               {summary.approval_conditions.map((condition) => (
                 <li key={condition}>{condition}</li>
               ))}
@@ -426,7 +426,7 @@ function DecisionBadge({ decision }: { decision: string }) {
   return (
     <span
       className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold capitalize ${
-        isBlock ? 'bg-[#fee8e1] text-[#8a2f1d]' : 'bg-[#dceee8] text-[#173f35]'
+        isBlock ? 'bg-[#fee2e2] text-[#7f1d1d]' : 'bg-[#eef2ff] text-[#4f46e5]'
       }`}
     >
       {isBlock ? <AlertTriangle size={13} aria-hidden="true" /> : <CheckCircle2 size={13} aria-hidden="true" />}
@@ -450,12 +450,12 @@ function FindingChips({
 
   const chipClassName =
     tone === 'compliance'
-      ? 'border-[#f0d0c7] bg-[#fff7f4] text-[#8a2f1d]'
-      : 'border-[#c9ded5] bg-[#edf7f3] text-[#275f51]';
+      ? 'border-[#fecaca] bg-[#fee2e2] text-[#7f1d1d]'
+      : 'border-[#c7d2fe] bg-[#eef2ff] text-[#4f46e5]';
 
   return (
     <div className="mt-3 flex flex-wrap items-center gap-2">
-      <span className="min-w-[126px] text-xs font-semibold text-[#617066]">{label}</span>
+      <span className="min-w-[126px] text-xs font-semibold text-[#64748b]">{label}</span>
       {items.map((item) => (
         <span
           key={item}
@@ -472,10 +472,10 @@ function severityClassName(severity: string) {
   const normalizedSeverity = severity.toLowerCase();
   const tone =
     normalizedSeverity === 'high'
-      ? 'bg-[#fee8e1] text-[#8a2f1d]'
+      ? 'bg-[#fee2e2] text-[#7f1d1d]'
       : normalizedSeverity === 'medium'
-        ? 'bg-[#fff3c4] text-[#6c4a00]'
-        : 'bg-[#dceee8] text-[#173f35]';
+        ? 'bg-[#fffbeb] text-[#92400e]'
+        : 'bg-[#ecfeff] text-[#0891b2]';
 
   return `h-fit w-fit rounded-full px-2.5 py-1 text-xs font-bold uppercase ${tone}`;
 }
