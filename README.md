@@ -74,3 +74,18 @@ PowerShell alternative:
 ```bash
 npm.cmd test
 ```
+
+## Deploy on Render
+
+This app uses React Router with browser URLs such as `/demo`. Render must rewrite
+unknown paths to `index.html` so the client-side router can render those pages.
+
+If the service is managed from this repo as a Blueprint, `render.yaml` contains
+the required static-site rewrite. If the Render service was created manually, add
+this rewrite in the Render dashboard:
+
+```text
+Source: /*
+Destination: /index.html
+Action: Rewrite
+```
