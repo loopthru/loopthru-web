@@ -33,10 +33,10 @@ describe('App', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /turn review requests into a trackable workflow/i,
+        name: /should this infrastructure.*change be deployed/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: /request a review/i })[0]).toHaveAttribute(
+    expect(screen.getAllByRole('link', { name: /run a review/i })[0]).toHaveAttribute(
       'href',
       '/demo',
     );
